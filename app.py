@@ -26,6 +26,11 @@ system_prompt = """PDFの空室一覧表から、以下の4項目のみを抽出
 - 賃料が「相談」の場合はそのまま「相談」と記載
 - 余計な説明文は不要、CSVのみ出力"""
 
+correct_password = st.secrets.get("APP_PASSWORD") if "APP_PASSWORD" in st.secrets else os.environ.get("APP_PASSWORD", "password")
+password = st.text_input("パスワードを入力してください", type="password")
+if password != correct_password:
+    st.stop()
+
 st.title("PDF解析ツール")
 st.write("PDFをアップロードすると、物件情報を自動で抽出します。")
 
