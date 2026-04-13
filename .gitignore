@@ -1,0 +1,7 @@
+.env
+*.pdf
+output.csv
+log.md
+image.png
+前回のセッション.md
+.claude/
